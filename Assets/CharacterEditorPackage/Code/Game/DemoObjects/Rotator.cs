@@ -8,7 +8,7 @@ public class Rotator : MonoBehaviour
     public float speed = 0f;
     public float maxspeed = 500f;
     public float acceleration = 1f;
-    public int rotation;
+    public float rotation;
 
     public float addSpeed;
 
@@ -19,6 +19,7 @@ public class Rotator : MonoBehaviour
     void FixedUpdate()
     {
         rotation = transform.rotation.z;
+
         if (isSpinning)
         {
             transform.Rotate(Vector3.forward, Time.fixedDeltaTime * speed);
