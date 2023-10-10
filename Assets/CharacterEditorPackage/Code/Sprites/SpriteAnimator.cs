@@ -6,6 +6,7 @@ public class AnimationOffset
 {
     public string m_Name;
     public Vector3 m_Offset;
+
 }
 //--------------------------------------------------------------------
 //The SpriteAnimator class controls the sprite animations in Unity's animator system
@@ -14,6 +15,8 @@ public class AnimationOffset
 //The SpriteAnimator also interpolates sprite position for smooth movement because Unity's Update and FixedUpdate are not synched.
 //--------------------------------------------------------------------
 public class SpriteAnimator : MonoBehaviour {
+
+    [SerializeField] private float objectTransparency;
     public enum SpriteInterpolation
     {
         None,
@@ -67,6 +70,7 @@ public class SpriteAnimator : MonoBehaviour {
 	
 	void Update () 
 	{
+        
         if (m_CharacterController == null || m_CharacterController.GetCollider() == null)
         {
             Debug.LogError("Sprite animator can't find properly set-up character");
@@ -208,4 +212,6 @@ public class SpriteAnimator : MonoBehaviour {
         }
         transform.localPosition = localPos;
     }
+
+
 }
