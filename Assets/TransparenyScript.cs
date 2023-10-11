@@ -11,6 +11,10 @@ public class TransparenyScript : MonoBehaviour
 
     public float currentOpacity;
 
+    public TimerScript timerScript;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +42,13 @@ public class TransparenyScript : MonoBehaviour
         {
             SceneManager.LoadScene("gameOver");
             print("osuma");
+        }
+
+        if (other.gameObject.CompareTag("TimerStartHere"))
+        {
+            timerScript.StartTimer();
+            other.gameObject.SetActive(false);
+
         }
     }
 
