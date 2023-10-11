@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TransparenyScript : MonoBehaviour
 {
@@ -28,6 +29,15 @@ public class TransparenyScript : MonoBehaviour
         {
            transparencySpriteObj.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, currentOpacity - minusOpacity);
 
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("endWall"))
+        {
+            SceneManager.LoadScene("gameOver");
+            print("osuma");
         }
     }
 

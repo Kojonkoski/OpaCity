@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private PauseScript pauseScript;
+    [SerializeField] private TransparenyScript transparencyScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transparencyScript.currentOpacity <= 0.3f)
+        {
+            SceneManager.LoadScene("gameOver");
+
+        }
     }
 
     private void Awake()
