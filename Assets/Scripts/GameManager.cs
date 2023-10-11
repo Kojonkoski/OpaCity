@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private PauseScript pauseScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,11 @@ public class GameManager : MonoBehaviour
         
     }
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene("SampleScene");
@@ -27,5 +33,17 @@ public class GameManager : MonoBehaviour
     {
 
         Application.Quit(); 
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("menuScene");
+
+    }
+
+    public void Continue()
+    {
+        pauseScript.Continue();
+
     }
 }
